@@ -2,7 +2,7 @@
 
 function App() {
   return (
-    <div className="App">
+    <div className="app-container">
       <h1>Pokemon codex</h1>
     </div>
   );

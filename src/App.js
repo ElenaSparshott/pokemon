@@ -21,7 +21,6 @@ function App() {
       })
     }
       createPokemonObject(data.results)
-      await console.log(allPokemons)
     }
   
 
@@ -35,7 +34,16 @@ function App() {
       <h1>Pokemon codex</h1>
       <div className="Pokemon-container">
         <div className="all-container">
-          {allPokemons.map(pokemon => <li>{pokemon.name}</li>)}
+          { allPokemons.map((pokemon, index) => 
+          <PokemonCards
+          id={pokemon.id}
+          name={pokemon.name}
+          
+          image={pokemon.sprites.other.dream_world.front_default}
+          type={pokemon.types[0].type.name}
+          key={index}
+          />
+          )}
         </div>
         <button className="Press-me">Press Me!</button>
       </div>

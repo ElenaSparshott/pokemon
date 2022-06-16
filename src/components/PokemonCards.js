@@ -1,6 +1,6 @@
 import React from 'react'
 
-const PokemonCards = (id, name, image, type) => {
+const PokemonCards = ({id, name, image, type}) => {
   return (
     <div className='card'>
         <div className='number'>

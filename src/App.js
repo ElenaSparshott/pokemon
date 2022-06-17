@@ -45,7 +45,7 @@ function App() {
           />
           )}
         </div>
-        <button className="Press-me">Press Me!</button>
+        <button className="Press-me" onclick={() => getAllPokemons()}>Press Me!</button>
       </div>
     </div>
   );

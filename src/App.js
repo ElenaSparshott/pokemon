@@ -4,30 +4,26 @@ import PokemonCards from './components/PokemonCards';
 function App() {
 
   const [allPokemons, setAllPokemons] = useState([])
-  const [loadMore, setLoadMore] = useState('https://pokeapi.co/api/v2/pokemon?limit=20')
+  const [load, setLoad] = useState('https://pokeapi.co/api/v2/pokemon?limit=20')
+  const [nextUrl, setNextUrl] = useState(null)
+  
+  useEffect(() => {
+    console.log("Useeffect called")
+    const getAllPokemons = async () => {
+      const res = await fetch(load)
+      const data = await res.json()
 
-  const getAllPokemons = async () => {
-    const res = await fetch(loadMore)
-    const data = await res.json()
+      setNextUrl(data.next)
 
-    setLoadMore(data.next)
-
-    function createPokemonObject(result) {
-      result.forEach( async (pokemon) => {
+      data.results.forEach( async (pokemon) => {
         const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`)
         const data = await res.json()
 
         setAllPokemons(currentlist => [...currentlist, data])
       })
     }
-      createPokemonObject(data.results)
-    }
-  
-
-  useEffect(() => {
-   getAllPokemons()
-  }, [])
-  
+    getAllPokemons()
+  }, [load])
 
   return (
     <div className="app-container">
@@ -45,10 +41,10 @@ function App() {
           />
           )}
         </div>
-        <button className="Press-me" onclick={() => getAllPokemons()}>Press Me!</button>
+        <button className="Press-me" onClick={() => setLoad(nextUrl)}>Press Me!</button>
       </div>
     </div>
   );
-  }
+}
 
 export default App;

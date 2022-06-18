@@ -31,3 +31,11 @@ code {
   align-items: center;
   justify-content: center;
 }
+
+.press-me {
+  background-color: rgb(108, 155, 242);
+  border-radius: 2px;
+  padding: 0.5rem 1.5rem;
+  margin-top: 3rem;
+  font-size: 42px;
+}

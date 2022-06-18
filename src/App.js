@@ -28,7 +28,7 @@ function App() {
   return (
     <div className="app-container">
       <h1>Pokemon codex</h1>
-      <div className="Pokemon-container">
+      <div className="pokemon-container">
         <div className="all-container">
           { allPokemons.map((pokemon, index) => 
           <PokemonCards
@@ -41,7 +41,7 @@ function App() {
           />
           )}
         </div>
-        <button className="Press-me" onClick={() => setLoad(nextUrl)}>Press Me!</button>
+        <button className="press-me" onClick={() => setLoad(nextUrl)}>Press Me!</button>
       </div>
     </div>
   );

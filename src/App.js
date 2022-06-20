@@ -4,7 +4,7 @@ import PokemonCards from './components/PokemonCards';
 function App() {
 
   const [allPokemons, setAllPokemons] = useState([])
-  const [load, setLoad] = useState('https://pokeapi.co/api/v2/pokemon?limit=20')
+  const [load, setLoad] = useState('https://pokeapi.co/api/v2/pokemon?limit=3')
   const [nextUrl, setNextUrl] = useState(null)
   
   useEffect(() => {

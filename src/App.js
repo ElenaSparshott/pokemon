@@ -27,7 +27,7 @@ function App() {
 
   return (
     <div className="app-container">
-      <h1>Pokemon codex</h1>
+      <h1>The Pokemon codex</h1>
       <div className="pokemon-container">
         <div className="all-container">
           { allPokemons.map((pokemon, index) => 

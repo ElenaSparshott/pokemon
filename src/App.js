@@ -15,12 +15,16 @@ function App() {
 
       setNextUrl(data.next)
 
-      data.results.forEach( async (pokemon) => {
+      const getPokemon = async (pokemon) => {
         const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`)
         const data = await res.json()
 
         setAllPokemons(currentlist => [...currentlist, data])
-      })
+      }
+      for (const a of data.results) {
+        await getPokemon(a)
+      }
+      // data.results.forEach( getPokemon )
     }
     getAllPokemons()
   }, [load])
